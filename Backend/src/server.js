@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(cors(CORS_OPTIONS));
-app.use(morgan("dev")); // Logging middleware for development
+if(process.env.NODE_ENV === "production") {app.use(morgan("dev")); }// Logging middleware for development
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
