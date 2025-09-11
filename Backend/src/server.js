@@ -17,7 +17,7 @@ app.use(cors(CORS_OPTIONS));
 if(process.env.NODE_ENV === "production") {app.use(morgan("dev")); }// Logging middleware for development
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser(COOKIE_OPTIONS));
 
 const __dirname = path.resolve();
 
